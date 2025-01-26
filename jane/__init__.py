@@ -1,3 +1,13 @@
+import logging
+import os
+import sys
+import time
+import aiohttp
+from aiohttp import ClientSession
+
+import telegram.ext as tg
+from pyrogram import Client, errors
+from telethon import TelegramClient
 import config 
 
 API_ID = config.API_ID
