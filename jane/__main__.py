@@ -4,26 +4,16 @@ import re
 from sys import argv
 from typing import Optional
 import config
-
 from jane import (
     LOGGER,
+    BOT_TOKEN
     dispatcher,
     telethn,
     pbot,
     updater,
 )
-
 from pyrogram import Client, filters
 from jane.modules import ALL_MODULES
-
-
-
-
-
-
-
-
-
 
 
 IMPORTED = {}
@@ -37,7 +27,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("anjlnobita.plugins." + module_name)
+    imported_module = importlib.import_module("jane.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -62,8 +52,7 @@ for module_name in ALL_MODULES:
 
 
 
-BOT_TOKEN = config.BOT_TOKEN
-# Main Function
+
 def main():
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()
