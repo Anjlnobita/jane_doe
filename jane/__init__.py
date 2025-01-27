@@ -82,7 +82,7 @@ DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 
-TOKEN = 7970949227:AAHHqi_yNrnpN4w0criBvVri_YX6D1BmUKg
+TOKEN = "7970949227:AAHHqi_yNrnpN4w0criBvVri_YX6D1BmUKg"
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("jane", API_ID, API_HASH)
