@@ -11,7 +11,7 @@ from jane.utils.admins import can_restrict
 @can_restrict
 async def ban_zombies(_, message: Message):
     del_zom = 0
-    no_z = "`0 deleted accounts found in this chat.`"
+    no_z = "Group clean, not found the deleted account."
     try:
         clean = message.text.split(None, 1)[1]
     except:
