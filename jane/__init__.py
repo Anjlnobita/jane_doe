@@ -48,9 +48,9 @@ dispatcher = updater.dispatcher
 aiohttpsession = ClientSession()
 print("[INFO]: INITIALIZING AIOHTTP SESSION")
 print("[INFO]: Getting Bot Info...")
-BOT_ID = dispatcher.bot.id
-BOT_NAME = dispatcher.bot.first_name
-BOT_USERNAME = dispatcher.bot.username
+BOT_ID = dispatcher.me.id
+BOT_NAME = dispatcher.me.first_name
+BOT_USERNAME = dispatcher.me.username
 
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
