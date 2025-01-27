@@ -20,6 +20,10 @@ DATABASE_URL = getenv("mongodb+srv://anjlnobita:tCUPU9Ty1FFvLumv@cluster0.appf0.
 
 
 LOG_GROUP_ID = -1002372313866
+JOIN_LOGGER = -1002372313866
+LOG_GROUP_ID = -1002372313866
+EVENT_LOGS = -1002372313866
+
 
 OWNER_ID = 6777860063
 
@@ -40,7 +44,7 @@ SUPPORT_CHAT = getenv(
 )
 
 
-
+AI_API_KEY = "awoo"
 
 LOG = 2
 LOG_FILE_NAME = "logs.txt"
@@ -64,6 +68,10 @@ LOAD = []
 NO_LOAD = []
 STRICT_GBAN = True
 WORKERS = 8
+WEBHOOK = False
+URL = None
+
+BAN_STICKER = "" 
 
 START_IMG = "https://telegra.ph/file/ee28ffa1fa36ac19faa41.jpg"
 
