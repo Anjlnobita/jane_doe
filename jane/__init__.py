@@ -92,9 +92,9 @@ pbot = Client("jane", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 print("[INFO]: INITIALIZING AIOHTTP SESSION")
 print("[INFO]: Getting Bot Info...")
-BOT_ID = dispatcher.me.id
-BOT_NAME = dispatcher.me.first_name
-BOT_USERNAME = dispatcher.me.username
+BOT_ID = dispatcher.bot.id
+BOT_NAME = dispatcher.bot.first_name
+BOT_USERNAME = dispatcher.bot.username
 
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
