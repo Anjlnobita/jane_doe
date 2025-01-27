@@ -90,7 +90,6 @@ telethn = TelegramClient("jane", API_ID, API_HASH)
 
 pbot = Client("jane", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
-aiohttpsession = ClientSession()
 print("[INFO]: INITIALIZING AIOHTTP SESSION")
 print("[INFO]: Getting Bot Info...")
 BOT_ID = dispatcher.me.id
