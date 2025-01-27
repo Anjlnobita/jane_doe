@@ -95,13 +95,3 @@ DEMONS = list(DEMONS)
 TIGERS = list(TIGERS)
 
 
-from jane.modules.helper_func.handlers import (
-    CustomCommandHandler,
-    CustomMessageHandler,
-    CustomRegexHandler,
-)
-
-# make sure the regex handler can take extra kwargs
-tg.RegexHandler = CustomRegexHandler
-tg.CommandHandler = CustomCommandHandler
-tg.MessageHandler = CustomMessageHandler
