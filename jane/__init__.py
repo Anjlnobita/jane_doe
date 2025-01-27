@@ -99,7 +99,7 @@ DEMONS = list(DEMONS)
 TIGERS = list(TIGERS)
 
 
-from jane.modules.helper_funcs.handlers import (
+from jane.modules.helper_func.handlers import (
     CustomCommandHandler,
     CustomMessageHandler,
     CustomRegexHandler,
