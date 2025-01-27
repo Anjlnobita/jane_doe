@@ -39,7 +39,7 @@ for module_name in ALL_MODULES:
 
 
 
-
+TOKEN = "7970949227:AAHHqi_yNrnpN4w0criBvVri_YX6D1BmUKg"
 TOKEN = config.BOT_TOKEN
 # Main Function
 def main():
