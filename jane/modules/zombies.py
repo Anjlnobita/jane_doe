@@ -24,7 +24,7 @@ async def ban_zombies(_, message: Message):
                 await sleep(1)
         if del_zom > 0:
             return await check.edit_text(
-                f"`{del_zom}` found in this chat.\nClean them by /zombies clean"
+                f"`{del_zom}` found in this chat.\nClean them by `/zombies clean`"
             )
         else:
             return await check.edit_text(no_z)
