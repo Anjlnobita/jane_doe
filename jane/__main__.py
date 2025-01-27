@@ -1,3 +1,4 @@
+# Code to Generate Section
 import importlib
 import time
 import re
@@ -14,7 +15,6 @@ from jane import (
 )
 from pyrogram import Client, filters
 from jane.modules import ALL_MODULES
-
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -36,22 +36,6 @@ for module_name in ALL_MODULES:
 
     if hasattr(imported_module, "__help__") and imported_module.__help__:
         HELPABLE[imported_module.__mod_name__.lower()] = imported_module
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def main():
     if len(argv) not in (1, 3, 4):
