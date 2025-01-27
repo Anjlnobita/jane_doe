@@ -10,6 +10,22 @@ from pyrogram import Client, errors
 from telethon import TelegramClient
 import config 
 
+
+# enable logging
+logging.basicConfig(
+    format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
+    handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
+    level=logging.INFO,
+)
+
+logging.getLogger("apscheduler").setLevel(logging.ERROR)
+logging.getLogger("telethon").setLevel(logging.ERROR)
+logging.getLogger("pyrogram").setLevel(logging.ERROR)
+LOGGER = logging.getLogger(__name__)
+
+
+
+
 API_ID = config.API_ID
 API_HASH = config.API_HASH
 OWNER_ID = config.OWNER_ID
