@@ -11,14 +11,12 @@ load_dotenv()
 API_ID = 20650066
 API_HASH = getenv("7a4f8ed638f1369a40693574c2835217")
 
-
-
 BOT_TOKEN = getenv("7970949227:AAHHqi_yNrnpN4w0criBvVri_YX6D1BmUKg")
-
 
 
 MONGO_DB_URI = getenv("mongodb+srv://anjlnobita:tCUPU9Ty1FFvLumv@cluster0.appf0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
+DATABASE_URL = getenv("mongodb+srv://anjlnobita:tCUPU9Ty1FFvLumv@cluster0.appf0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 
 LOG_GROUP_ID = -1002372313866
@@ -66,3 +64,7 @@ LOAD = []
 NO_LOAD = []
 STRICT_GBAN = True
 WORKERS = 8
+
+START_IMG = "https://telegra.ph/file/ee28ffa1fa36ac19faa41.jpg"
+
+    
