@@ -3,11 +3,11 @@ from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.errors import MessageDeleteForbidden, RPCError
 from pyrogram.types import Message
-from jane import pbot 
+from jane import pbot as app
 from jane.utils.admins import can_restrict
 
 
-@pbot.on_message(filters.command(["purge"]))
+@app.on_message(filters.command(["purge"]))
 @can_restrict
 async def purge(app: app, msg: Message):
 
@@ -49,7 +49,7 @@ async def purge(app: app, msg: Message):
 
 
 
-@pbot.on_message(filters.command(["spurge"]))
+@app.on_message(filters.command(["spurge"]))
 @can_restrict
 async def spurge(app: app, msg: Message):
 
@@ -82,7 +82,7 @@ async def spurge(app: app, msg: Message):
 
 
 
-@pbot.on_message(filters.command(["del"]))
+@app.on_message(filters.command(["del"]))
 @can_restrict
 async def del_msg(app: app, msg: Message):
     if msg.chat.type != ChatType.SUPERGROUP:
