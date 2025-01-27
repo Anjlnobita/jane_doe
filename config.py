@@ -19,7 +19,7 @@ MONGO_DB_URI = "mongodb+srv://anjlnobita:tCUPU9Ty1FFvLumv@cluster0.appf0.mongodb
 DATABASE_URL = "mongodb+srv://anjlnobita:tCUPU9Ty1FFvLumv@cluster0.appf0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 
-LOG_GROUP_ID = -1002372313866
+
 JOIN_LOGGER = -1002372313866
 LOG_GROUP_ID = -1002372313866
 EVENT_LOGS = -1002372313866
