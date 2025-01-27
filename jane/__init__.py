@@ -33,6 +33,34 @@ AI_API_KEY = config.AI_API_KEY
 LOG_GROUP_ID = config.LOG_GROUP_ID
 
 
+try:
+    OWNER_ID = int(config.OWNER_ID)
+except ValueError:
+    raise Exception("Your OWNER_ID variable is not a valid integer.")
+
+
+try:
+    DRAGONS = set(int(x) for x in config.DRAGONS or [])
+    DEV_USERS = set(int(x) for x in config.DEV_USERS or [])
+except ValueError:
+    raise Exception("Your sudo or dev users list does not contain valid integers.")
+
+try:
+    DEMONS = set(int(x) for x in config.DEMONS or [])
+except ValueError:
+    raise Exception("Your support users list does not contain valid integers.")
+
+try:
+    WOLVES = set(int(x) for x in config.WOLVES or [])
+except ValueError:
+    raise Exception("Your whitelisted users list does not contain valid integers.")
+
+try:
+    TIGERS = set(int(x) for x in config.TIGERS or [])
+except ValueError:
+    raise Exception("Your tiger users list does not contain valid integers.")
+
+
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
