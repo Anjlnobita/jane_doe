@@ -6,7 +6,7 @@ from typing import Optional
 import config
 from jane import (
     LOGGER,
-    BOT_TOKEN
+    BOT_TOKEN,
     dispatcher,
     telethn,
     pbot,
