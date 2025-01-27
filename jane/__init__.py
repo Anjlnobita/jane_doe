@@ -82,6 +82,7 @@ DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 
+from config import BOT_TOKEN as TOKEN
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("jane", API_ID, API_HASH)
