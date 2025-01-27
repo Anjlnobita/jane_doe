@@ -21,9 +21,6 @@ LOGGER = logging.getLogger(__name__)
 
 import config 
 
-API_ID = config.API_ID
-API_HASH = config.API_HASH
-OWNER_ID = config.OWNER_ID
 ALLOW_CHATS = config.ALLOW_CHATS
 ALLOW_EXCL = config.ALLOW_EXCL
 DB_URI = config.DATABASE_URL
@@ -37,7 +34,6 @@ START_IMG = config.START_IMG
 STRICT_GBAN = config.STRICT_GBAN
 SUPPORT_CHAT = config.SUPPORT_CHAT
 TOKEN = config.BOT_TOKEN
-WORKERS = config.WORKERS
 BAN_STICKER = config.BAN_STICKER
 AI_API_KEY = config.AI_API_KEY
 LOG_GROUP_ID = config.LOG_GROUP_ID
