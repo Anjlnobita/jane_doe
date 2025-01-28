@@ -21,7 +21,6 @@ async def promote(event):
                 pin_messages=True,
                 add_admins=True,
                 manage_call=True,
-                manage_chat=True,
                 manage_contacts=True,
                 manage_messages=True,
                 manage_phone_calls=True,
