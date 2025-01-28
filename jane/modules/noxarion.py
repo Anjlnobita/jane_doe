@@ -1,7 +1,8 @@
 from telethon import events, functions
 from telethon.tl.types import ChatAdminRights
+from jane import telethn
 
-@events.register(outgoing=True, pattern=r"\.promote")
+@telethn.on(events.NewMessage(pattern=f"^[!/]promote ?(.*)"))
 async def promote(event):
     chat = await event.get_chat()
     user = await event.get_reply_message()
@@ -25,7 +26,7 @@ async def promote(event):
     else:
         await event.reply("reply a user give me id!")
 
-@events.register(outgoing=True, pattern=r"\.demote")
+@telethn.on(events.NewMessage(pattern=f"^[!/]demote ?(.*)"))
 async def demote(event):
     chat = await event.get_chat()
     user = await event.get_reply_message()
