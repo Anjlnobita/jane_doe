@@ -12,10 +12,6 @@ def promote(update: Update, context: CallbackContext) -> str:
     chat = update.effective_chat
     user = update.effective_user
 
-    if not user.id in OWNER_ID:
-        message.reply_text("» ʏᴏᴜ ᴄᴀɴ'ᴛ ᴘʀᴏᴍᴏᴛᴇ ᴜsᴇʀs, ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀ ᴅʀᴀɢᴏɴ !")
-        return
-
     user_id = extract_user(message, args)
     if not user_id:
         message.reply_text("» ɪ ᴅᴏɴ'ᴛ ᴋɴᴏᴡ ᴡʜᴏ's ᴛʜᴀᴛ ᴜsᴇʀ, ɴᴇᴠᴇʀ sᴇᴇɴ ʜɪᴍ ɪɴ ᴀɴʏ ᴏғ ᴛʜᴇ ᴄʜᴀᴛs ᴡʜᴇʀᴇ ɪ ᴀᴍ ᴩʀᴇsᴇɴᴛ !")
