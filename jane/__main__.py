@@ -39,8 +39,7 @@ for module_name in ALL_MODULES:
 
 
 
-TOKEN = "8035442845:AAH4jjTU4HjB89AuF7IcuZT1vXxWLLGcxJI"
-TOKEN = config.BOT_TOKEN
+TOKEN = "8007775153:AAGX6U201PrUnl1zGqCxWy_HRMzQ3fKUP9c"
 # Main Function
 def main():
     if len(argv) not in (1, 3, 4):
