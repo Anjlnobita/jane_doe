@@ -3,8 +3,8 @@ from jane import dispatcher
 from telegram import Update, ParseMode
 from telegram.ext import CallbackContext, MessageHandler, Filters
 from telegram.error import BadRequest
+from jane import OWNER_ID
 
-OWNER_ID = 7335060704
 def promote(update: Update, context: CallbackContext) -> str:
     bot = context.bot
     args = context.args
