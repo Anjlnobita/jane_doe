@@ -83,7 +83,7 @@ TOKEN = "7970949227:AAHHqi_yNrnpN4w0criBvVri_YX6D1BmUKg"
 WORKERS = 8
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("Noi", API_ID, API_HASH)
-pbot = Client("NoinoiRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+pbot = Client("jane", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 print("[INFO]: INITIALIZING AIOHTTP SESSION")
 
