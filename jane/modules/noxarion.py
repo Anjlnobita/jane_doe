@@ -1,21 +1,19 @@
-# Promote User in Telegram Group
 
-from jane import dispatcher
+from jane import dispatcher 
 from telegram import Update, ParseMode
 from telegram.ext import CallbackContext, MessageHandler, Filters
 from telegram.error import BadRequest
 
-
+OWNER_ID = 7335060704
 def promote(update: Update, context: CallbackContext) -> str:
     bot = context.bot
     args = context.args
     message = update.effective_message
     chat = update.effective_chat
     user = update.effective_user
-    promoter = chat.get_member(user.id)
 
-    if not (promoter.can_promote_members or promoter.status == "creator"):
-        message.reply_text("» ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴩᴇʀᴍɪssɪᴏɴs ᴛᴏ ᴀᴅᴅ ɴᴇᴡ ᴀᴅᴍɪɴs ʙᴀʙʏ !")
+    if not user.id in OWNER_ID:
+        message.reply_text("» ʏᴏᴜ ᴄᴀɴ'ᴛ ᴘʀᴏᴍᴏᴛᴇ ᴜsᴇʀs, ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀ ᴅʀᴀɢᴏɴ !")
         return
 
     user_id = extract_user(message, args)
@@ -55,7 +53,6 @@ def promote(update: Update, context: CallbackContext) -> str:
             message.reply_text("» ᴛʜᴇ ᴜsᴇʀ ᴅᴏᴇs ɴᴏᴛ ʜᴀᴠᴇ ᴀ ᴍᴜᴛᴜᴀʟ ᴄʜᴀᴛ ᴡɪᴛʜ ᴛʜᴇ ʙᴏᴛ.")
         else:
             message.reply_text("» ᴛʜᴇʀᴇ ᴡᴀs ᴀɴ ᴇʀʀᴏʀ ᴡʜɪʟᴇ ᴘʀᴏᴍᴏᴛɪɴɢ ᴛʜᴇ ᴜsᴇʀ.")
-
 
 
 dispatcher.add_handler(MessageHandler(Filters.command('promote') & Filters.group, promote))
