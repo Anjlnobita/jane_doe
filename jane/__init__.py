@@ -76,13 +76,13 @@ DEV_USERS.add(OWNER_ID)
 
 
 API_ID = 20650066
-API_HASH = "8035442845:AAH4jjTU4HjB89AuF7IcuZT1vXxWLLGcxJI"
-TOKEN = "7970949227:AAHHqi_yNrnpN4w0criBvVri_YX6D1BmUKg"
+API_HASH = "7a4f8ed638f1369a40693574c2835217"
+TOKEN = "8035442845:AAH4jjTU4HjB89AuF7IcuZT1vXxWLLGcxJI"
 
 
 WORKERS = 8
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("Noi", API_ID, API_HASH)
+telethn = TelegramClient("jane", API_ID, API_HASH)
 pbot = Client("jane", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 print("[INFO]: INITIALIZING AIOHTTP SESSION")
