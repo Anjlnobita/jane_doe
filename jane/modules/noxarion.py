@@ -1,51 +1,46 @@
+# Promote User in Telegram Chat
+
 from telethon import events, functions
 from telethon.tl.types import ChatAdminRights
+from telethon.errors import BadRequest
 from jane import telethn
 
 @telethn.on(events.NewMessage(pattern=f"^[!/]promote ?(.*)"))
 async def promote(event):
-    group = await event.get_chat()
+    chat = await event.get_chat()
     user = await event.get_reply_message()
     if user:
         user_id = user.from_id
-        await event.client.edit_admin(
-            group_id=group.id,
-            user_id=user_id,
-            admin_rights=ChatAdminRights(
-                change_info=True,
-                post_messages=True,
-                edit_messages=True,
-                delete_messages=True,
-                ban_users=True,
-                invite_users=True,
-                pin_messages=True,
-                add_admins=True
+        try:
+            user_member = await chat.get_member(user_id)
+        except:
+            return
+        if user_member.status in ("administrator", "creator"):
+            await event.reply("» According to me that user is already an admin here!")
+            return
+        if user_id == telethn.me.id:
+            await event.reply("» I can't promote myself, my owner didn't tell me to do so.")
+            return
+        try:
+            await telethn.edit_admin(
+                chat_id=chat.id,
+                user_id=user_id,
+                admin_rights=ChatAdminRights(
+                    change_info=True,
+                    post_messages=True,
+                    edit_messages=True,
+                    delete_messages=True,
+                    ban_users=True,
+                    invite_users=True,
+                    pin_messages=True,
+                    add_admins=True
+                )
             )
-        )
-        await event.reply("promoted!")
+            await event.reply(f"» Promoted {user_member.user.first_name} in {chat.title}!")
+        except BadRequest as err:
+            if err.message == "User_not_mutual_contact":
+                await event.reply("» As I can see that user is not present here.")
+            else:
+                await event.reply("» Something went wrong, maybe someone promoted that user before me.")
     else:
-        await event.reply("reply a user give me id!")
-
-@telethn.on(events.NewMessage(pattern=f"^[!/]demote ?(.*)"))
-async def demote(event):
-    group = await event.get_chat()
-    user = await event.get_reply_message()
-    if user:
-        user_id = user.from_id
-        await event.client.edit_admin(
-            group_id=group.id,
-            user_id=user_id,
-            admin_rights=ChatAdminRights(
-                change_info=False,
-                post_messages=False,
-                edit_messages=False,
-                delete_messages=False,
-                ban_users=False,
-                invite_users=False,
-                pin_messages=False,
-                add_admins=False
-            )
-        )
-        await event.reply("demoted!")
-    else:
-        await event.reply("reply a user or give me id!")
+        await event.reply("» You don't have permissions to add new admins baby!")
