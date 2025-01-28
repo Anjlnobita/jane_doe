@@ -5,7 +5,6 @@ from telegram import Update, ParseMode
 from telegram.ext import CallbackContext, MessageHandler, Filters
 from telegram.error import BadRequest
 
-dispatcher.add_handler(MessageHandler(Filters.command('promote') & Filters.group, promote))
 
 def promote(update: Update, context: CallbackContext) -> str:
     bot = context.bot
@@ -56,3 +55,7 @@ def promote(update: Update, context: CallbackContext) -> str:
             message.reply_text("» ᴛʜᴇ ᴜsᴇʀ ᴅᴏᴇs ɴᴏᴛ ʜᴀᴠᴇ ᴀ ᴍᴜᴛᴜᴀʟ ᴄʜᴀᴛ ᴡɪᴛʜ ᴛʜᴇ ʙᴏᴛ.")
         else:
             message.reply_text("» ᴛʜᴇʀᴇ ᴡᴀs ᴀɴ ᴇʀʀᴏʀ ᴡʜɪʟᴇ ᴘʀᴏᴍᴏᴛɪɴɢ ᴛʜᴇ ᴜsᴇʀ.")
+
+
+
+dispatcher.add_handler(MessageHandler(Filters.command('promote') & Filters.group, promote))
