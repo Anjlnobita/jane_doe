@@ -4,12 +4,12 @@ from jane import telethn
 
 @telethn.on(events.NewMessage(pattern=f"^[!/]promote ?(.*)"))
 async def promote(event):
-    chat = await event.get_chat()
+    group = await event.get_chat()
     user = await event.get_reply_message()
     if user:
         user_id = user.from_id
-        await event.client(functions.channels.EditAdmin(
-            channel=chat.id,
+        await event.client.edit_admin(
+            group_id=group.id,
             user_id=user_id,
             admin_rights=ChatAdminRights(
                 change_info=True,
@@ -19,21 +19,27 @@ async def promote(event):
                 ban_users=True,
                 invite_users=True,
                 pin_messages=True,
-                add_admins=True
+                add_admins=True,
+                manage_call=True,
+                manage_chat=True,
+                manage_contacts=True,
+                manage_messages=True,
+                manage_phone_calls=True,
+                manage_topics=True
             )
-        ))
+        )
         await event.reply("promoted!")
     else:
         await event.reply("reply a user give me id!")
 
 @telethn.on(events.NewMessage(pattern=f"^[!/]demote ?(.*)"))
 async def demote(event):
-    chat = await event.get_chat()
+    group = await event.get_chat()
     user = await event.get_reply_message()
     if user:
         user_id = user.from_id
-        await event.client(functions.channels.EditAdmin(
-            channel=chat.id,
+        await event.client.edit_admin(
+            group_id=group.id,
             user_id=user_id,
             admin_rights=ChatAdminRights(
                 change_info=False,
@@ -43,9 +49,15 @@ async def demote(event):
                 ban_users=False,
                 invite_users=False,
                 pin_messages=False,
-                add_admins=False
+                add_admins=False,
+                manage_call=False,
+                manage_chat=False,
+                manage_contacts=False,
+                manage_messages=False,
+                manage_phone_calls=False,
+                manage_topics=False
             )
-        ))
+        )
         await event.reply("demoted!")
     else:
         await event.reply("reply a user or give me id!")
