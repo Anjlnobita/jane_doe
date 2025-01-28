@@ -19,12 +19,7 @@ async def promote(event):
                 ban_users=True,
                 invite_users=True,
                 pin_messages=True,
-                add_admins=True,
-                manage_call=True,
-                manage_contacts=True,
-                manage_messages=True,
-                manage_phone_calls=True,
-                manage_topics=True
+                add_admins=True
             )
         )
         await event.reply("promoted!")
@@ -48,13 +43,7 @@ async def demote(event):
                 ban_users=False,
                 invite_users=False,
                 pin_messages=False,
-                add_admins=False,
-                manage_call=False,
-                manage_chat=False,
-                manage_contacts=False,
-                manage_messages=False,
-                manage_phone_calls=False,
-                manage_topics=False
+                add_admins=False
             )
         )
         await event.reply("demoted!")
