@@ -2,7 +2,7 @@
 
 from telethon import events, functions
 from telethon.tl.types import ChatAdminRights
-from telethon.errors import UserNotMutualContact
+from telethon.errors import BadRequest
 from jane import telethn
 
 @telethn.on(events.NewMessage(pattern=f"^[!/]promote ?(.*)"))
@@ -37,9 +37,7 @@ async def promote(event):
                 )
             )
             await event.reply(f"» Promoted {user_member.user.first_name} in {chat.title}!")
-        except UserNotMutualContact:
-            await event.reply("» As I can see that user is not present here.")
-        except Exception:
+        except BadRequest as err:
             await event.reply("» Something went wrong, maybe someone promoted that user before me.")
     else:
         await event.reply("» You don't have permissions to add new admins baby!")
