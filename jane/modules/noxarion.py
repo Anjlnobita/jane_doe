@@ -1,39 +1,58 @@
-# Promote User in Telegram Chat
+# Promote User in Telegram Group
 
-from telethon import events, functions
-from telethon.tl.types import ChatAdminRights
-from jane import telethn
+from jane import dispatcher
+from telegram import Update, ParseMode
+from telegram.ext import CallbackContext, MessageHandler, Filters
+from telegram.error import BadRequest
 
-@telethn.on(events.NewMessage(pattern=f"^[!/]promote ?(.*)"))
-async def promote(event):
-    chat = await event.get_chat()
-    user = await event.get_reply_message()
-    if user:
-        user_id = user.from_id
-        if user_id == telethn.me.id:
-            await event.reply("» I can't promote myself.")
-            return
-        try:
-            user_member = await chat.get_member(user_id)
-            if user_member.status in ("administrator", "creator"):
-                await event.reply("» According to me that user is already an admin here!")
-                return
-            await telethn.edit_admin(
-                chat_id=chat.id,
-                user_id=user_id,
-                admin_rights=ChatAdminRights(
-                    change_info=True,
-                    post_messages=True,
-                    edit_messages=True,
-                    delete_messages=True,
-                    ban_users=True,
-                    invite_users=True,
-                    pin_messages=True,
-                    add_admins=True
-                )
-            )
-            await event.reply(f"» Promoted {user_member.user.first_name} in {chat.title}!")
-        except Exception:
-            await event.reply("» Something went wrong.")
-    else:
-        await event.reply("» You don't have permissions to add new admins.")
+dispatcher.add_handler(MessageHandler(Filters.command('promote') & Filters.group, promote))
+
+def promote(update: Update, context: CallbackContext) -> str:
+    bot = context.bot
+    args = context.args
+    message = update.effective_message
+    chat = update.effective_chat
+    user = update.effective_user
+    promoter = chat.get_member(user.id)
+
+    if not (promoter.can_promote_members or promoter.status == "creator"):
+        message.reply_text("» ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴩᴇʀᴍɪssɪᴏɴs ᴛᴏ ᴀᴅᴅ ɴᴇᴡ ᴀᴅᴍɪɴs ʙᴀʙʏ !")
+        return
+
+    user_id = extract_user(message, args)
+    if not user_id:
+        message.reply_text("» ɪ ᴅᴏɴ'ᴛ ᴋɴᴏᴡ ᴡʜᴏ's ᴛʜᴀᴛ ᴜsᴇʀ, ɴᴇᴠᴇʀ sᴇᴇɴ ʜɪᴍ ɪɴ ᴀɴʏ ᴏғ ᴛʜᴇ ᴄʜᴀᴛs ᴡʜᴇʀᴇ ɪ ᴀᴍ ᴩʀᴇsᴇɴᴛ !")
+        return
+
+    try:
+        user_member = chat.get_member(user_id)
+    except:
+        return
+
+    if user_member.status in ("administrator", "creator"):
+        message.reply_text("» ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴍᴇ ᴛʜᴀᴛ ᴜsᴇʀ ɪs ᴀʟʀᴇᴀᴅʏ ᴀɴ ᴀᴅᴍɪɴ ʜᴇʀᴇ !")
+        return
+
+    if user_id == bot.id:
+        message.reply_text("» ɪ ᴄᴀɴ'ᴛ ᴩʀᴏᴍᴏᴛᴇ ᴍʏsᴇʟғ, ᴍʏ ᴏᴡɴᴇʀ ᴅɪᴅɴ'ᴛ ᴛᴏʟᴅ ᴍᴇ ᴛᴏ ᴅᴏ sᴏ.")
+        return
+
+    bot_member = chat.get_member(bot.id)
+    try:
+        bot.promoteChatMember(
+            chat.id,
+            user_id,
+            can_change_info=bot_member.can_change_info,
+            can_post_messages=bot_member.can_post_messages,
+            can_edit_messages=bot_member.can_edit_messages,
+            can_delete_messages=bot_member.can_delete_messages,
+            can_invite_users=bot_member.can_invite_users,
+            can_manage_voice_chats=bot_member.can_manage_voice_chats,
+            can_pin_messages=bot_member.can_pin_messages,
+        )
+        message.reply_text(f"» ᴩʀᴏᴍᴏᴛᴇᴅ {user_member.user.first_name} ɪɴ {chat.title}!")
+    except BadRequest as err:
+        if err.message == "User_not_mutual":
+            message.reply_text("» ᴛʜᴇ ᴜsᴇʀ ᴅᴏᴇs ɴᴏᴛ ʜᴀᴠᴇ ᴀ ᴍᴜᴛᴜᴀʟ ᴄʜᴀᴛ ᴡɪᴛʜ ᴛʜᴇ ʙᴏᴛ.")
+        else:
+            message.reply_text("» ᴛʜᴇʀᴇ ᴡᴀs ᴀɴ ᴇʀʀᴏʀ ᴡʜɪʟᴇ ᴘʀᴏᴍᴏᴛɪɴɢ ᴛʜᴇ ᴜsᴇʀ.")
