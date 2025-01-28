@@ -11,7 +11,7 @@ load_dotenv()
 API_ID = 20650066
 API_HASH = "7a4f8ed638f1369a40693574c2835217"
 
-BOT_TOKEN = "8035442845:AAH4jjTU4HjB89AuF7IcuZT1vXxWLLGcxJI"
+BOT_TOKEN = ""
 
 
 MONGO_DB_URI = "mongodb+srv://anjlnobita:tCUPU9Ty1FFvLumv@cluster0.appf0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
