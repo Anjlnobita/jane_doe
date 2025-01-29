@@ -2,7 +2,7 @@ import re
 import sys
 from os import getenv
 
-from dotenv import load_dotenv
+
 from pyrogram import filters
 load_dotenv()
 
@@ -36,12 +36,9 @@ WOLVES = 7335060704
 
 
 
-SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/anjlnobita"
-)
-SUPPORT_CHAT = getenv(
-    "SUPPORT_GROUP", "https://t.me/anime_societyy"
-)
+SUPPORT_CHANNEL = "https://t.me/anjlnobita"
+SUPPORT_CHAT = "https://t.me/anime_societyy"
+
 
 
 AI_API_KEY = "awoo"
