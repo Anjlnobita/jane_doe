@@ -4,7 +4,6 @@ from os import getenv
 
 
 from pyrogram import filters
-load_dotenv()
 
 
 
