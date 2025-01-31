@@ -9,7 +9,7 @@ from jane import (
     LOGGER,
     dispatcher,
     telethn,
-    pbot,
+    app,
     updater,
 )
 from pyrogram import Client, filters
@@ -53,5 +53,5 @@ def main():
 if __name__ == "__main__":
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
-    pbot.start()
+    app.start()
     main()
