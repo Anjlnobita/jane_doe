@@ -9,7 +9,7 @@ from pyrogram.errors import PeerIdInvalid
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
 import config
 from pyrogram.types import BotCommand
-from config import API_HASH, API_ID
+from jane import API_HASH, API_ID
 
 from jane.doe.mongo import mongodb
 
