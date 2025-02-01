@@ -19,6 +19,35 @@ logging.basicConfig(
 
 LOGGER = logging.getLogger(__name__)
 
+
+
+
+
+from jane.doe.dir import dirr
+from jane.doe.git import git
+from jane.doe.userbot import Userbot
+from jane.misc import dbb, heroku
+
+dirr()
+git()
+dbb()
+heroku()
+userbot = Userbot()
+
+
+from .doe import *
+
+Apple = AppleAPI()
+Carbon = CarbonAPI()
+SoundCloud = SoundAPI()
+Spotify = SpotifyAPI()
+Resso = RessoAPI()
+Telegram = TeleAPI()
+YouTube = YouTubeAPI()
+
+
+
+
 import config 
 
 ALLOW_CHATS = config.ALLOW_CHATS
