@@ -1,5 +1,7 @@
-from jane import LOAD, LOGGER, NO_LOAD
+from jane import LOGGER
 
+LOAD = []
+NO_LOAD = []
 
 def __list_all_modules():
     import glob
