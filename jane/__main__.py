@@ -38,7 +38,17 @@ for module_name in ALL_MODULES:
 
 
 
-TOKEN = "8007775153:AAGX6U201PrUnl1zGqCxWy_HRMzQ3fKUP9c"
+def load_bot_token():
+    default_token = "8007775153:AAGX6U201PrUnl1zGqCxWy_HRMzQ3fKUP9c"
+    bot_tokens = collection.find()
+    tokens = [default_token] + [token["token"] for token in bot_tokens]
+    return tokens
+    
+bot_tokens = load_bot_token()
+
+
+
+#TOKEN = "8007775153:AAGX6U201PrUnl1zGqCxWy_HRMzQ3fKUP9c"
 # Main Function
 def main():
     if len(argv) not in (1, 3, 4):
@@ -52,7 +62,7 @@ def main():
 
 if __name__ == "__main__":
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    telethn.start(bot_token=TOKEN)
+    telethn.start(bot_token=bot_tokens)
     telethn.run_until_disconnected()
     app.start()
     main()
