@@ -30,6 +30,18 @@ TIGERS = 7335060704
 WOLVES = 7335060704
 
 
+DRAGONS = 6777860063
+DEV_USERS = 7335060704
+DEMONS = 6397808634
+MEOW = 7666460878
+
+#OWNER_ID = [DEV_USERS, DRAGONS, DEMONS, MEOW]
+
+
+OWNER_ID = (6777860063, 7335060704, 6397808634, 7666460878)
+
+
+
 
 AI_API_KEY = "api key "
 
@@ -60,18 +72,15 @@ URL = None
 
 BAN_STICKER = "" 
 
+BANNED_USERS = filters.user()
+adminlist = {}
+lyrical = {}
+votemode = {}
+autoclean = []
+confirmer = {}
 
 
 
-DRAGONS = 6777860063
-DEV_USERS = 7335060704
-DEMONS = 6397808634
-MEOW = 7666460878
-
-#OWNER_ID = [DEV_USERS, DRAGONS, DEMONS, MEOW]
-
-
-OWNER_ID = (6777860063, 7335060704, 6397808634, 7666460878)
 
 
 API_ID = int(getenv("API_ID"))
@@ -131,12 +140,7 @@ STRING4 = getenv("STRING_SESSION4", None)
 STRING5 = getenv("STRING_SESSION5", None)
 
 
-BANNED_USERS = filters.user()
-adminlist = {}
-lyrical = {}
-votemode = {}
-autoclean = []
-confirmer = {}
+
 
 
 START_IMG_URL = getenv(
