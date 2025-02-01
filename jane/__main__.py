@@ -15,6 +15,8 @@ from jane import (
 from pyrogram import Client, filters
 from jane.modules import ALL_MODULES
 
+from jane.modules.noxarion import clonebotdb
+
 IMPORTED = {}
 MIGRATEABLE = []
 HELPABLE = {}
@@ -40,7 +42,7 @@ for module_name in ALL_MODULES:
 
 def load_bot_token():
     default_token = "8007775153:AAGX6U201PrUnl1zGqCxWy_HRMzQ3fKUP9c"
-    bot_tokens = collection.find()
+    bot_tokens = clonebotdb.find()
     tokens = [default_token] + [token["token"] for token in bot_tokens]
     return tokens
     
