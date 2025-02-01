@@ -46,6 +46,33 @@ AI_API_KEY = config.AI_API_KEY
 LOG_GROUP_ID = config.LOG_GROUP_ID
 
 
+
+
+
+EVENT_LOGS = ()  
+BL_CHATS = [] 
+DRAGONS = [] 
+DEV_USERS = []  
+DEMONS = []  
+TIGERS = [] 
+WOLVES = [] 
+
+
+ALLOW_CHATS = True
+ALLOW_EXCL = True
+DEL_CMDS = True
+INFOPIC = True
+LOAD = []
+NO_LOAD = []
+STRICT_GBAN = True
+WORKERS = 8
+WEBHOOK = False
+URL = None
+
+
+
+
+
 try:
     OWNER_ID = int(config.OWNER_ID)
 except ValueError:
