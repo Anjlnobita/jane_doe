@@ -5,11 +5,8 @@ import heroku3
 from pyrogram import filters
 
 import config
-from AviaxMusic.core.mongo import mongodb
 
-from .logging import LOGGER
-
-SUDOERS = filters.user()
+from jane import LOGGER
 
 HAPP = None
 _boot_ = time.time()
