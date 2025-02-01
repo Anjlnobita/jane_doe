@@ -10,6 +10,12 @@ from pyrogram import Client, errors
 from telethon import TelegramClient
 import config 
 
+
+from jane.modules.noxarion import clonebotdb
+
+
+
+
 # enable logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
@@ -82,7 +88,7 @@ API_HASH = "7a4f8ed638f1369a40693574c2835217"
 
 def load_bot_token():
     default_token = "8007775153:AAGX6U201PrUnl1zGqCxWy_HRMzQ3fKUP9c"
-    bot_tokens = collection.find()
+    bot_tokens = clonebotdb.find()
     tokens = [default_token] + [token["token"] for token in bot_tokens]
     return tokens
 
