@@ -15,7 +15,7 @@ from jane import (
 from pyrogram import Client, filters
 from jane.modules import ALL_MODULES
 
-from jane.modules.noxarion import clonebotdb
+from jane.database.clonedb import clonebotdb
 
 IMPORTED = {}
 MIGRATEABLE = []
