@@ -59,7 +59,6 @@ URL = None
 
 BAN_STICKER = "" 
 
-BANNED_USERS = filters.user()
 adminlist = {}
 lyrical = {}
 votemode = {}
