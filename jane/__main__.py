@@ -3,7 +3,12 @@ import time
 import re
 from sys import argv
 from typing import Optional
-import confi
+from pyrogram import Client, filters
+
+from jane.modules import ALL_MODULES
+
+from jane.database.clonedb import clonebotdb
+
 from jane import (
     LOGGER,
     dispatcher,
@@ -11,10 +16,8 @@ from jane import (
     app,
     updater,
 )
-from pyrogram import Client, filters
-from jane.modules import ALL_MODULES
 
-from jane.database.clonedb import clonebotdb
+
 
 IMPORTED = {}
 MIGRATEABLE = []
