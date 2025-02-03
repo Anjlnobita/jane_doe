@@ -4,7 +4,7 @@ import time
 import re
 from sys import argv
 from typing import Optional
-import config
+import confi
 from jane import (
     LOGGER,
     dispatcher,
