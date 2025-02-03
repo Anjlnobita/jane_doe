@@ -1,6 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 
-from jane import MONGO_DB_URI
+from jane.conf import MONGO_DB_URI
 
 from jane import LOGGER
 
