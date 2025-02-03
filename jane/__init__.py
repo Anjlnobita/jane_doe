@@ -11,7 +11,7 @@ from telethon import TelegramClient
 import config 
 
 
-from jane.modules.noxarion import clonebotdb
+from jane.database.clonedb import clonebotdb
 
 
 
