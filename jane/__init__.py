@@ -9,8 +9,6 @@ import telegram.ext as tg
 from pyrogram import Client, errors
 from telethon import TelegramClient
 import config 
-
-
 from jane.database.clonedb import clonebotdb
 
 
