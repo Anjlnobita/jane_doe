@@ -2,7 +2,11 @@ beautifulsoup4
 requests
 python-telegram-bot==12.8
 ffmpeg-python
+python-dotenv
 aiohttp
+aiohttp
+telegram 
+telethon
 Pillow
 googletrans
 jikanpy
