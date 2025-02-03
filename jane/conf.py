@@ -68,8 +68,9 @@ confirmer = {}
 
 
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/noxarion_network")
-SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/anime_societyy")
+SUPPORT_CHANNEL = "SUPPORT_CHANNEL", "https://t.me/noxarion_network"
+
+SUPPORT_GROUP = "SUPPORT_GROUP", "https://t.me/anime_societyy"
 
 
 
