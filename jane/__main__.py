@@ -1,4 +1,3 @@
-# Code to Generate Section
 import importlib
 import time
 import re
