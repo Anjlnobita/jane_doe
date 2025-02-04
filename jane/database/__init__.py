@@ -9,7 +9,7 @@ def start():
 
 try:
     client = start()
-    nobita = client.get_default_database()
+    noxarion = client.get_default_database()
 except Exception as e:
     log.exception(f"[MongoDB] Failed to connect due to {e}")
     exit()
