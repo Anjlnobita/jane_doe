@@ -11,7 +11,7 @@ from pyrogram.errors.exceptions.bad_request_400 import (
 )
 
 import datetime
-from jane import app
+from jane import pbot as app
 
 
 
